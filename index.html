@@ -1,283 +1,117 @@
 <!DOCTYPE html> 
 <html lang="en">
-    <head>
-		<title>TeamViewer</title>
-		<meta charset="utf-8"/>
-		<meta name="author" content="Andrew Heath" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--css-->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="CSS/Main.css"/>
-	</head>
-	<body>
-    <div class="container">
-        <form>
-            <div class="form-group">
-            <label for="TeamURLInput">Input Team URL Here:</label>
-                <input type="url" class= "form-control" id="TeamURLInput" aria-describedby="URLHelp">
-                <small id="URLHelp" class="form-text text-muted">URL must be the teams page on NSE.gg site</small>
-            </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Game select</label>
-                    <select class="form-control" id="exampleFormControlSelect1" aria-describedby="GameSelectHelp">
-                        <option>R6</option>
-                        <option>LOL</option>
-                        <option>CSGO</option>
-                        <option>Overwatch</option>
-                    </select>
-                  <small id="GameSelectHelp" class="form-text text-muted">Only works with r6 ATM</small>
-                </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 1
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 2
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 3
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 4
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 5
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 6
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 7
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 8
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 9
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 10
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-                <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 11
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>                
-        <div class="container">
-            <div class="row">
-                <div class="col-2 border bg-light">
-                    Player 12
-                </div>
-                <div class="col-2 border bg-light">
-                    IGN
-                </div>
-                <div class="col-4 border bg-light">
-                    URL
-                </div>
-                <div class="col-2 border bg-light">
-                    Rank
-                </div>
-                <div class="col-2 border bg-light">
-                    MMR
-                </div>
-            </div>
-        </div>
-    </div>
-    </body>
+<head>
+	<title>Andrew Heath Portfolio | Welcome</title>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Andrew Heath" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--css-->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">	
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="CSS/Main.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="off-canvas-wrapper">
+			<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+				<div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+					<div class="row column">
+						<br>
+						<h5>About me</h5>
+						<p>List Education blah blah blah</p>
+					</div>
+				</div>
+
+				<div class="off-canvas-content" data-off-canvas-content>
+					<div class="title-bar hide-for-large">
+						<div class="title-bar-left">
+							<button class="menu-icon" type="button" data-open="my-info"></button>
+							<span class="title-bar-title">Mike Mikerson</span>
+						</div>
+					</div>
+					<div class="callout primary">
+						<div class="row column">
+							<h1>Projects</h1>
+							<p class="lead">In the below area are a colection of projects I have worked on over the years</p>
+						</div>
+					</div>
+					<div class="row small-up-2 medium-up-3 large-up-4">
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+						<div class="column">
+							<img class="thumbnail" src="https://placehold.it/550x550">
+							<h5>My Site</h5>
+						</div>
+					</div>
+
+					<hr>
+
+					<div class="row">
+						<div class="medium-12 columns">
+							<h3>Contact Me</h3>
+							<p>Email me at: </p>
+							<ul class="menu">
+								<li><a href="#">Dribbble</a></li>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Yo</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+</body>
+</html>    
