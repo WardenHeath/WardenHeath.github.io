@@ -1,31 +1,58 @@
 body {
-	background-color:#7a807c;
+	background-color:#272a2e;
 	color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 		}
 #TitleBar{
-    background-color:#7a807c;
+    background-color:#272a2e;
 	color: #fff0ff;
     margin: 0;
+    font-family: 'DM Mono', monospace;
 }
 #MainContent{
-    background-color:#7a807c;
+    background-color:#272a2e;
 	color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 }
 #InfoLeft{
-    background-color:#7a807c;
+    background-color:#272a2e;
 	color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 }
 #my-info{
-        background-color:#7a807c;
+        background-color:#272a2e;
 	color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 }
 #AccordianOpen{
-    background-color:#7a807c;
+    background-color:#272a2e;
 	color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 }
-a {
+a{
     color: #fff0ff;
+    font-family: 'DM Mono', monospace;
 }
 .accordion-title{
      color: #fff0ff;
+    font-family: 'DM Mono', monospace;
+}
+.accordion-title:hover{
+    background-color: #737880;
+    color: white;
+    font-family: 'DM Mono', monospace;
+}
+.accordion-title:focus{
+    background-color: #737880;
+    color: white;
+    font-family: 'DM Mono', monospace;
+}
+h5{
+    font-family: 'DM Mono', monospace;
+}
+h1{
+    font-family: 'DM Mono', monospace;
+}
+h3{
+    font-family: 'DM Mono', monospace;
 }
