@@ -13,8 +13,8 @@
 <body>
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper style="height: auto;">
 			<!--Canvas that appears on right side of screen-->
-			<div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-				<div class="row column">
+			<div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left" id="InfoLeft">
+				<div class="row column" id="InfoLeft">
 					<br>
 					<button class="close-button" type="button" data-close></button>
 					<img class="thumbnail" src="https://placehold.it/550x350">
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 
-			<div class="off-canvas-content" data-off-canvas-content>
+			<div class="off-canvas-content" data-off-canvas-content id="BackCavas">
 				<div class="grid-y medium-grid-frame">
 					<div class="cell shrink header medium-cell-block-container">
 						<div class="title-bar hide-for-large">
@@ -32,7 +32,7 @@
 								<span class="title-bar-title">Andrew Heath</span>
 							</div>
 						</div>
-						<div class="callout primary">
+						<div class="callout primary" id="TitleBar">
 							<div class="row column">
 								<h1>Portfolio</h1>
 								<p class="lead">Below are some of my projects I have Completed/Worked on</p>
@@ -40,14 +40,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="cell medium-auto medium-cell-block-container">
+				<div class="cell medium-auto medium-cell-block-container" Id="MainContent">
 					<div class="row small-up-2 medium-up-3 large-up-4">
 
 						<div class="column">
 
-							<img class="thumbnail" src="https://placehold.it/200x100">
+							<img class="float-center" src="https://placehold.it/200x100">
 
-							<ul class="accordion" data-accordion data-allow-all-closed="true">
+							<ul class="accordion" data-accordion data-allow-all-closed="true" id="AccordianOpen">
 								<li class="accordion-item " data-accordion-item>
 									<a href="#" class="accordion-title"><h5>University work</h5></a>
 									<div class="accordion-content" data-tab-content>
@@ -60,8 +60,8 @@
 
 						<div class="column">
 
-							<img class="thumbnail" src="https://placehold.it/200x100">
-							<ul class="accordion" data-accordion data-allow-all-closed="true">
+							<img class="float-center" src="https://placehold.it/200x100">
+							<ul class="accordion" data-accordion data-allow-all-closed="true" id="AccordianOpen">
 								<li class="accordion-item " data-accordion-item>
 									<a href="#" class="accordion-title"><h5>Personal projects</h5></a>
 									<div class="accordion-content" data-tab-content>
@@ -74,8 +74,8 @@
 
 						<div class="column">
 
-							<img class="thumbnail" src="https://placehold.it/200x100">
-							<ul class="accordion" data-accordion data-allow-all-closed="true">
+							<img class="float-center" src="https://placehold.it/200x100">
+							<ul class="accordion" data-accordion data-allow-all-closed="true" id="AccordianOpen">
 								<li class="accordion-item " data-accordion-item>
 									<a href="#" class="accordion-title"><h5>Industry work</h5></a>
 									<div class="accordion-content" data-tab-content>
@@ -88,8 +88,8 @@
 
 						<div class="column">
 
-							<img class="thumbnail" src="https://placehold.it/200x100">
-							<ul class="accordion" data-accordion data-allow-all-closed="true">
+							<img class="float-center" src="https://placehold.it/200x100">
+							<ul class="accordion" data-accordion data-allow-all-closed="true" id="AccordianOpen">
 								<li class="accordion-item" data-accordion-item>
 									<a href="#" class="accordion-title"><h5>Other</h5></a>
 									<div class="accordion-content" data-tab-content>
@@ -101,7 +101,7 @@
 					</div>
 				</div>
 				<!--there was an attempt to have this float at the bottom of the page but not yet-->
-				<div class="cell shrink footer" style="position:fixed;bottom:0;">
+				<div class="cell" style="position:fixed;bottom:0;">
 					<h3>Contact Me</h3>
 					<p>Email me at: a.heath97@outlook.com</p>
 					<ul class="menu">

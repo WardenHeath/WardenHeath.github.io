@@ -2,3 +2,30 @@ body {
 	background-color:#7a807c;
 	color: #fff0ff;
 		}
+#TitleBar{
+    background-color:#7a807c;
+	color: #fff0ff;
+    margin: 0;
+}
+#MainContent{
+    background-color:#7a807c;
+	color: #fff0ff;
+}
+#InfoLeft{
+    background-color:#7a807c;
+	color: #fff0ff;
+}
+#my-info{
+        background-color:#7a807c;
+	color: #fff0ff;
+}
+#AccordianOpen{
+    background-color:#7a807c;
+	color: #fff0ff;
+}
+a {
+    color: #fff0ff;
+}
+.accordion-title{
+     color: #fff0ff;
+}
