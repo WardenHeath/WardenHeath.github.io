@@ -56,3 +56,15 @@ h1{
 h3{
     font-family: 'DM Mono', monospace;
 }
+#PFtitle{
+    font-size: .25em;
+}
+#sectionTitle{
+    height: 100px;
+    width: 200px;
+    font-size: .01em;
+    overflow:hidden;
+}
+#logo{
+    font-size: 3em;
+}
