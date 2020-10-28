@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <title>Andrew Heath Portfolio | Welcome</title>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Andrew Heath" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS -->
+
+        <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/Main.css"/>
+    </head>
+    <body>
+
+        <div class="row">
+            <div class="columns small-1"> </div>
+            <div class="columns small-11">
+                <nav aria-label="You are here:" role="navigation">
+                    <ul class="breadcrumbs">
+                        <li><a href="../index.html">Home</a></li>
+                        <li>
+                            <span class="show-for-sr">Current: </span> Player Look up tool 
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <hr>
+        <form>
+            <div class="row">
+                <div class="columns small-3"> </div>
+                <div class="columns small-3"><input type="text" placeholder="Input team URL here" id="TeamURL"></div>
+                <div class="columns small-3"> <button type="button" class="button success" onclick="getInputValue();">Submit</button></div>
+                <div class="columns small-3"> </div>
+            </div>
+        </form>
+        <hr>
+        <div class="row">
+            <div class="columns small-12">
+                <table>
+                    <thead>
+                        <th width="400">Player Username</th>
+                        <th width="400">Rank</th>
+                        <th width="400">Link to profile</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+        <script>
+            function getInputValue(){
+                // Selecting the input element and get its value 
+                var inputVal = document.getElementById("TeamURL").value;
+
+                // Displaying the value
+                alert(inputVal);
+            }
+        </script>
+        <script>
+            $(document).foundation();
+
+        </script>
+    </body>
+</html>    
