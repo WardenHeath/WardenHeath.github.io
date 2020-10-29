@@ -107,8 +107,20 @@
                 // Selecting the input element and get its value 
                 var inputVal = document.getElementById("TeamURL").value;
 
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.open("GET", inputVal, false);
+
+                xhttp.onreadystatechange = function() {
+                    if(xhttp.readyState == 4 && XMLReq.status == 200) {
+                        alert(xhttp.responseText);
+                    }
+                }
+
+                xhttp.send();
+
                 // Displaying the value
-                alert(inputVal);
+                 alert(inputVal);
             }
         </script>
         <script>
