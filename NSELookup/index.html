@@ -106,22 +106,20 @@
             function getInputValue(){
                 // Selecting the input element and get its value 
                 var inputVal = document.getElementById("TeamURL").value;
-
-                var xhttp = new XMLHttpRequest();
-
-                xhttp.open("GET", inputVal, false);
-
-                xhttp.onreadystatechange = function() {
-                    if(xhttp.readyState == 4 && XMLReq.status == 200) {
-                        alert(xhttp.responseText);
-                    }
-                }
-
-                xhttp.send();
-
+                
+                GetNSEValue(inputVal);
+                
                 // Displaying the value
-                 alert(inputVal);
+                //alert(inputVal);
             }
+            function GetNSEValue(TeamURL){
+                //https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/
+        var name = "codemzy";
+        var url = 'https://api.allorigins.win/get?callback=myFunc&url=' + encodeURIComponent(TeamURL);
+        $.get(url, function(response) {  console.log(response);});
+                
+            }
+            document.querySelector("#TeamURL").addEventListener('click', GetNSEValue);
         </script>
         <script>
             $(document).foundation();

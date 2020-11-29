@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Webscrper test ground
+    </title>
+
+
+</head>
+
+<body>
+    <button id="getDataBtn">Get Data</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    function GetData()  {
+        //https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/
+        var name = "codemzy";
+        var url = 'https://api.allorigins.win/get?callback=myFunc&url=' + encodeURIComponent('https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/');
+        $.get(url, function(response) {  console.log(response);});
+           //        
+//        var name = "codemzy";
+//        var url = "http://anyorigin.com/go?url=" + encodeURIComponent("https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/")+ "&callback=?";
+//        $.get(url, function(response) {  console.log(response);
+    };
+
+document.querySelector("#getDataBtn").addEventListener('click', GetData);
+    </script>
+</body>
+</html>
