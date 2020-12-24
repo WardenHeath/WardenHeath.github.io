@@ -30,13 +30,14 @@
         <form>
             <div class="row">
 
-                <div class="columns small-6"><input type="text" placeholder="Input team URL here" id="TeamURL"></div>
+                <div class="columns small-3"><input type="text" placeholder="Input team URL here" id="TeamURL"></div>
                 <div class="columns small-3"> <button type="button" class="button success" onclick="getInputValue();">Submit</button></div>
                 <div class="columns small-3"><div id='loader'><img src="ajax-loader.gif"/></div></div>
+                <div class="columns small-3">If a players MMR is unknown it means that the account doesnt exist</div>
             </div>
         </form>
         <hr>
-        https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/
+       
         <div class="row">
             <div class="columns small-12">
                 <table>
@@ -46,11 +47,7 @@
                         <th width="400">Link to profile</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -63,7 +60,10 @@
 
             //Creates a dummy html element so that we can append the rest of the html onto it and use dom to find elements
             var Dummy = document.createElement('html');
-            var PlayerProfile;
+
+            //declaring the Username Array
+            var PlayerNameText = [];
+            var PlayerRank = [];
 
             $('#loader').hide();//Hides the loader gif 
 
@@ -96,39 +96,76 @@
                     success: function(response) {
                         //console.log(response);
                         var responseText = response.replace(/img/gi,'<noload'); //removes any images so the dont attempt to be loaded
+
                         Dummy.innerHTML = responseText; //adds the Repsonse text to the Dummy element so that it can be manipulated
-                       
+
                         $('#loader').hide();
                     }
                 });         
                 //creates a collection for the player Usernames
                 PlayerName = Dummy.getElementsByClassName('moniker padding-b8');
-                //Coolection of PlayerProfile Urls
-                PlayerProfile = Dummy.getElementsByClassName('team-member-footer');
 
-                //declaring the Username Array
-                var PlayerNameText = [];
-                var PlayerProfileURLS = [];
+                // DIDNT NEED THIS
+                //Coolection of PlayerProfile Urls
+                //PlayerProfile = Dummy.getElementsByClassName('team-member-footer');
+
+
+                //var PlayerProfileURLS = [];
                 //populating array with Data from the Player name collection 
                 for( var i = 0; i < PlayerName.length; i++){
                     PlayerNameText[i]  = PlayerName[i].textContent;
                 }
-                for(var i = 0; i<PlayerProfile.length; i++){
-                    PlayerProfileURLS[i] = PlayerProfile[i].querySelector('a').getAttribute('href');
+                //                for(var i = 0; i<PlayerProfile.length; i++){
+                //                    PlayerProfileURLS[i] = PlayerProfile[i].querySelector('a').getAttribute('href');
+                //                }
+
+                for( var i = 0; i < PlayerNameText.length; i++){
+
+                    var PPurl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://r6.tracker.network/profile/pc/'+PlayerNameText[i]);
+                    var DummyP = document.createElement('html');
+                    $.ajax({
+                        beforeSend: function(){$('#loader').show();},
+                        async: false,
+                        type: 'GET',
+                        url: PPurl,
+                        success: function(response) {
+
+
+                            //console.log(response);
+                            var responseText = response.replace(/img/gi,'<noload'); //removes any images so they dont attempt to be loaded
+                            DummyP.innerHTML = responseText; //adds the Repsonse text to the Dummy element so that it can be manipulated
+
+
+                            $('#loader').hide();
+                        }
+                    });
+                    try{
+                        PlayerRank[i] = DummyP.querySelector('#profile > div.trn-scont.trn-scont--swap > div.trn-scont__aside > div:nth-child(1) > div.trn-card__content.trn-card--light.pt8.pb8 > div > div:nth-child(2) > div:nth-child(1) > div.trn-text--dimmed').textContent;
+                    }catch{
+                        PlayerRank[i] = "Unknown";
                 }
-                for( var i = 0; i < PlayerName.length; i++){
-                    $("table").append('<tr><td>'+ PlayerNameText[i]+'</td><td></td><td></td></tr> ')
+
+                        //DummyP.getElementById("profile").getElementsByTagName("div")[2].getElementsByTagName("div")[1].getElementsByTagName("div")[0].getElementsByTagName("div")[0].getElementsByTagName("div").getElementsByTagName("div")[1].getElementsByTagName("div")[0].getElementsByTagName("div")[1].textContent;
+                        //console.log(testPlayerRank);
                 }
-                    
-                    
-//                //these loops just output the two arrays
-//                for( var i = 0; i < PlayerProfileURLS.length; i++){
-//                    console.log(PlayerProfileURLS[i]);
-//                }
-//                for( var i = 0; i < PlayerName.length; i++){
-//                    console.log(PlayerNameText[i]);
-//                }
-            }
+                       // console.log(PlayerRank);
+                    //This loop outputs the Data to the page
+                    //                for( var i = 0; i < PlayerName.length; i++){
+                    //                    console.log(PlayerRank[i]);
+                    //                }
+                    for( var i = 0; i < PlayerName.length; i++){
+                        $("table").append('<tr><td>'+ PlayerNameText[i]+'</td><td>'+PlayerRank[i]+'</td><td><a href="https://r6.tracker.network/profile/pc/'+PlayerNameText[i]+'">Link</a></td></tr> ')
+                    }
+
+
+                    //                //these loops just output the two arrays
+                    //                for( var i = 0; i < PlayerProfileURLS.length; i++){
+                    //                    console.log(PlayerProfileURLS[i]);
+                    //                }
+                    //                for( var i = 0; i < PlayerName.length; i++){
+                    //                    console.log(PlayerNameText[i]);
+                    //                }
+                }
 
         </script>
         <script>
