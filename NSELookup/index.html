@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
     <head>
-        <title>Andrew Heath Portfolio | Welcome</title>
+        <title>player lookup</title>
         <meta charset="utf-8"/>
         <meta name="author" content="Andrew Heath" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +29,19 @@
         <hr>
         <form>
             <div class="row">
-                <div class="columns small-3"> </div>
-                <div class="columns small-3"><input type="text" placeholder="Input team URL here" id="TeamURL"></div>
+
+                <div class="columns small-6"><input type="text" placeholder="Input team URL here" id="TeamURL"></div>
                 <div class="columns small-3"> <button type="button" class="button success" onclick="getInputValue();">Submit</button></div>
-                <div class="columns small-3"> </div>
+                <div class="columns small-3"><div id='loader'><img src="ajax-loader.gif"/></div></div>
             </div>
         </form>
         <hr>
+        https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/
         <div class="row">
             <div class="columns small-12">
                 <table>
                     <thead>
-                        <th width="400">Player Username</th>
+                        <th width="400">Username</th>
                         <th width="400">Rank</th>
                         <th width="400">Link to profile</th>
                     </thead>
@@ -50,76 +51,85 @@
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
+
+            //Creates a dummy html element so that we can append the rest of the html onto it and use dom to find elements
+            var Dummy = document.createElement('html');
+            var PlayerProfile;
+
+            $('#loader').hide();//Hides the loader gif 
+
+            //deprecated sleep function, can probs delete
+            function sleep(milliseconds) {
+                const date = Date.now();
+                let currentDate = null;
+                do {
+                    currentDate = Date.now();
+                } while (currentDate - date < milliseconds);
+            }
+            //takes value from text box and passes to the Get NSE data function
             function getInputValue(){
                 // Selecting the input element and get its value 
                 var inputVal = document.getElementById("TeamURL").value;
-                
-                GetNSEValue(inputVal);
-                
-                // Displaying the value
-                //alert(inputVal);
+
+                GetNSEdata(inputVal);
             }
-            function GetNSEValue(TeamURL){
+            function GetNSEdata(TeamURL){
                 //https://www.nse.gg/universities/university-of-leeds/teams/leads-rainbow-six-siege/
-        var name = "codemzy";
-        var url = 'https://api.allorigins.win/get?callback=myFunc&url=' + encodeURIComponent(TeamURL);
-        $.get(url, function(response) {  console.log(response);});
-                
+
+                // uses all origins to get around cors
+                var url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(TeamURL);
+
+                $.ajax({
+                    beforeSend: function(){$('#loader').show();},
+                    async: false,
+                    type: 'GET',
+                    url: url,
+                    success: function(response) {
+                        //console.log(response);
+                        var responseText = response.replace(/img/gi,'<noload'); //removes any images so the dont attempt to be loaded
+                        Dummy.innerHTML = responseText; //adds the Repsonse text to the Dummy element so that it can be manipulated
+                       
+                        $('#loader').hide();
+                    }
+                });         
+                //creates a collection for the player Usernames
+                PlayerName = Dummy.getElementsByClassName('moniker padding-b8');
+                //Coolection of PlayerProfile Urls
+                PlayerProfile = Dummy.getElementsByClassName('team-member-footer');
+
+                //declaring the Username Array
+                var PlayerNameText = [];
+                var PlayerProfileURLS = [];
+                //populating array with Data from the Player name collection 
+                for( var i = 0; i < PlayerName.length; i++){
+                    PlayerNameText[i]  = PlayerName[i].textContent;
+                }
+                for(var i = 0; i<PlayerProfile.length; i++){
+                    PlayerProfileURLS[i] = PlayerProfile[i].querySelector('a').getAttribute('href');
+                }
+                for( var i = 0; i < PlayerName.length; i++){
+                    $("table").append('<tr><td>'+ PlayerNameText[i]+'</td><td></td><td></td></tr> ')
+                }
+                    
+                    
+//                //these loops just output the two arrays
+//                for( var i = 0; i < PlayerProfileURLS.length; i++){
+//                    console.log(PlayerProfileURLS[i]);
+//                }
+//                for( var i = 0; i < PlayerName.length; i++){
+//                    console.log(PlayerNameText[i]);
+//                }
             }
-            document.querySelector("#TeamURL").addEventListener('click', GetNSEValue);
+
         </script>
         <script>
             $(document).foundation();
