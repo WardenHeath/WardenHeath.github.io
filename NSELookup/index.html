@@ -37,10 +37,10 @@
             </div>
         </form>
         <hr>
-       
+
         <div class="row">
             <div class="columns small-12">
-                <table>
+                <table id="table">
                     <thead>
                         <th width="400">Username</th>
                         <th width="400">Rank</th>
@@ -57,17 +57,13 @@
 
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-
+            $('#loader').hide();
             //Creates a dummy html element so that we can append the rest of the html onto it and use dom to find elements
             var Dummy = document.createElement('html');
 
             //declaring the Username Array
             var PlayerNameText = [];
             var PlayerRank = [];
-
-            $('#loader').hide();//Hides the loader gif 
-
-            //deprecated sleep function, can probs delete
             function sleep(milliseconds) {
                 const date = Date.now();
                 let currentDate = null;
@@ -75,8 +71,11 @@
                     currentDate = Date.now();
                 } while (currentDate - date < milliseconds);
             }
+
+
             //takes value from text box and passes to the Get NSE data function
             function getInputValue(){
+                $('#loader').show();
                 // Selecting the input element and get its value 
                 var inputVal = document.getElementById("TeamURL").value;
 
@@ -89,7 +88,7 @@
                 var url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(TeamURL);
 
                 $.ajax({
-                    beforeSend: function(){$('#loader').show();},
+                    beforeSend: function(){},
                     async: false,
                     type: 'GET',
                     url: url,
@@ -99,44 +98,38 @@
 
                         Dummy.innerHTML = responseText; //adds the Repsonse text to the Dummy element so that it can be manipulated
 
-                        $('#loader').hide();
+
                     }
                 });         
                 //creates a collection for the player Usernames
                 PlayerName = Dummy.getElementsByClassName('moniker padding-b8');
 
-                // DIDNT NEED THIS
-                //Coolection of PlayerProfile Urls
-                //PlayerProfile = Dummy.getElementsByClassName('team-member-footer');
-
-
-                //var PlayerProfileURLS = [];
                 //populating array with Data from the Player name collection 
                 for( var i = 0; i < PlayerName.length; i++){
                     PlayerNameText[i]  = PlayerName[i].textContent;
                 }
-                //                for(var i = 0; i<PlayerProfile.length; i++){
-                //                    PlayerProfileURLS[i] = PlayerProfile[i].querySelector('a').getAttribute('href');
-                //                }
+
 
                 for( var i = 0; i < PlayerNameText.length; i++){
 
                     var PPurl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://r6.tracker.network/profile/pc/'+PlayerNameText[i]);
                     var DummyP = document.createElement('html');
                     $.ajax({
-                        beforeSend: function(){$('#loader').show();},
+                        beforeSend: function(){
+                            $('#loader').show();
+                        },
                         async: false,
                         type: 'GET',
                         url: PPurl,
                         success: function(response) {
 
-
+                            $('#loader').hide();
                             //console.log(response);
                             var responseText = response.replace(/img/gi,'<noload'); //removes any images so they dont attempt to be loaded
                             DummyP.innerHTML = responseText; //adds the Repsonse text to the Dummy element so that it can be manipulated
 
 
-                            $('#loader').hide();
+
                         }
                     });
                     try{
@@ -148,14 +141,23 @@
                         //DummyP.getElementById("profile").getElementsByTagName("div")[2].getElementsByTagName("div")[1].getElementsByTagName("div")[0].getElementsByTagName("div")[0].getElementsByTagName("div").getElementsByTagName("div")[1].getElementsByTagName("div")[0].getElementsByTagName("div")[1].textContent;
                         //console.log(testPlayerRank);
                 }
-                       // console.log(PlayerRank);
-                    //This loop outputs the Data to the page
-                    //                for( var i = 0; i < PlayerName.length; i++){
-                    //                    console.log(PlayerRank[i]);
-                    //                }
-                    for( var i = 0; i < PlayerName.length; i++){
-                        $("table").append('<tr><td>'+ PlayerNameText[i]+'</td><td>'+PlayerRank[i]+'</td><td><a href="https://r6.tracker.network/profile/pc/'+PlayerNameText[i]+'">Link</a></td></tr> ')
+                        // console.log(PlayerRank);
+                        //This loop outputs the Data to the page
+                        //                for( var i = 0; i < PlayerName.length; i++){
+                        //                    console.log(PlayerRank[i]);
+                        //                }
+                        for( var i = 0; i < PlayerName.length; i++){
+                            $("table").append('<tr><td>'+ PlayerNameText[i]+'</td><td>'+PlayerRank[i]+'</td><td><a href="https://r6.tracker.network/profile/pc/'+PlayerNameText[i]+'">Link</a></td></tr> ')
+                        }
+                    var tableRC = document.getElementByID("table");
+                    
+                    if($("table").length == PlayerName.length){
+                        
+                        $('#loader').hide();
                     }
+                    
+                    console.log(TRC);
+                        console.log(PlayerName.length);
 
 
                     //                //these loops just output the two arrays
